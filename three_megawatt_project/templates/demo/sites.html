@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<section>
+<div class="page-header" id="Sites">
+<h1>Sites</h1>
+    {% if sites %}
+        <ul class="list-group">
+            {% for site in sites %}
+                <li class="list-group-item"><a href="/demo/sites/{% cycle '1/' '2/' '3/' %}">{{site.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+            <strong>There are no sites present.</strong>
+    {% endif %}
+</div>
+</section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<section>
+<div class="page-header" id="section-summary">
+    <a href="/demo/summary"><button type="button" class="btn btn-primary">Sum</button></a>
+    <a href="/demo/summary-average"><button type="button" class="btn btn-primary active">Average</button></a>
+    <h1>Summary</h1>
+    <div class="container">
+    {% if Averages %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Site Name </th>
+                <th>A Value </th>
+                <th>B Value </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for site_name,a_avg,b_avg in Averages %}
+                <tr>
+                    <td>{{site_name}}</td>
+                    <td>{{a_avg|floatformat:2}}</td>
+                    <td>{{b_avg|floatformat:2}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    </div>
+</div>
+</section>
+{% endblock %}
